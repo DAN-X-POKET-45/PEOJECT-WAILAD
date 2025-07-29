@@ -85,7 +85,7 @@ export const wawla = (player) => {
                     translate: entity.localizationKey,
                 },
                 
-                //@for players
+                //for players
                 { text: entity.typeId == "minecraft:player" ? `\n§7Nickname: ${entity.name}` : "" },
                 { text: entity.typeId == "minecraft:player" ? `\n§7Platform: ${entity.clientSystemInfo.platformType}` : "" },
                 { text: entity.typeId == "minecraft:player" ? `\n§7Gamemode: ${entity.getGameMode()}` : "" },
@@ -95,8 +95,8 @@ export const wawla = (player) => {
                 { text: entity.typeId != "minecraft:player" && entity.nameTag ? ("\n§7Nametag: " + entity.nameTag) : "" },
 
                 //for villagers
-                { text: `\n§7Profession: `}, { translate: entity.typeId.includes("minecraft:villager") ? `${getVillagerProfession(entity)}` : "" },
-                { text: `\n§7Biome: `},      { translate: entity.typeId.includes("minecraft:villager") ? `${getVillagerBiome(entity)}` : "" },
+                { text: entity.typeId.includes("minecraft:villager") ? `\n§7Profession: ` : ""}, { translate: entity.typeId.includes("minecraft:villager") ? `${getVillagerProfession(entity)}` : "" },
+                { text: entity.typeId.includes("minecraft:villager") ? `\n§7Biome: ` : ""},      { translate: entity.typeId.includes("minecraft:villager") ? `${getVillagerBiome(entity)}` : "" },
 
                 //for geral baby entitys
                 { text: isBaby ? `\n§7Baby (Grows in:§f ${ageable !== null ? getEntityGrowingTime(entity) : "Never"})` : "" },
