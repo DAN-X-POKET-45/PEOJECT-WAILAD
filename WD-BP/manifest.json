@@ -1,0 +1,25 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "WAILA - Daniel poket 45 edition [BP]",
+		"description": "See what you are looking at in Minecraft Bedrock Edition. This is not a port/copy of the original WAWLA mod.",
+		"uuid": "f38a7c11-3f56-4a27-94b6-06b88d7dc6a3",
+		"version": [7,5,0],
+		"min_engine_version": [1,21,80]
+	},
+	"modules": [
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "16b646cb-98eb-41b2-a9e0-dd7f088caab4",
+			"entry": "scripts/main.js",
+			"version": [1,0,0]
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "2.1.0-beta"
+		}
+	]
+}

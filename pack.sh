@@ -1,0 +1,1 @@
+zip -r wailad.mcaddon WD-RP WD-BP
