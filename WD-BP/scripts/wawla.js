@@ -570,6 +570,7 @@ export const getVillagerProfession = (entity) => {
 
 
 const crops = {
+    //vanilla
     "minecraft:wheat": 7,
     "minecraft:potatoes": 7,
     "minecraft:carrots": 7,
@@ -584,6 +585,26 @@ const crops = {
     "minecraft:pumpkin_stem": 7,
     "minecraft:berry_bush": 3,
 
+    //miscelaneous vanilla
     "minecraft:torchflower": 7,
     "minecraft:pitcher_plant": 4,
+
+    //Farmer's delight support
+    "farmersdelight:brown_mushroom_colony": 4,
+    "farmersdelight:cabbage_block": 7,
+    "farmersdelight:onion_block":  7,
+    "farmersdelight:red_mushroom_colony": 4,
+    "farmersdelight:rice_block": 3,
+    "farmersdelight:rice_block_upper": 3,
+    "farmersdelight:rich_soil_beetroot": 7,
+    "farmersdelight:rich_soil_carrot": 7,
+    "farmersdelight:rich_soil_potato": 7,
+    "farmersdelight:rich_soil_sugar_cane_bottom": 15,
+    "farmersdelight:rich_soil_sugar_cane_middle": 15,
+    "farmersdelight:rich_soil_torchflower_crop": 7,
+    "farmersdelight:rich_soil_wheat": 7,
+    "farmersdelight:tomato_block": 7,
+
+    //corn delight suport
+    "corn_delight:corn_crop": 7
 };
