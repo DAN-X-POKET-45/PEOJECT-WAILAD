@@ -585,7 +585,7 @@ const crops = {
     "minecraft:pumpkin_stem": 7,
     "minecraft:berry_bush": 3,
 
-    //miscelaneous vanilla
+    //miscelaneous vanilla support
     "minecraft:torchflower": 7,
     "minecraft:pitcher_plant": 4,
 
