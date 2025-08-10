@@ -130,26 +130,31 @@ export const wawla = (player) => {
         );
 
         const honeyLevel = block.permutation.getState("honey_level");
-        let growth = null;
+        const compostLevel = block.permutation.getState("composter_fill_level");
+        const cauldron_fill_level = Math.round(block.permutation.getState("fill_level")/6 * 100);
 
+        let growth = undefined;
         if(crops[block.typeId]){
             const maxGrowth = crops[block.typeId];
             let currentGrowth = undefined;
 
-            if(block.permutation.getState("growth") !== undefined){
-                currentGrowth = block.permutation.getState("growth");
-            }else if(block.permutation.getState("growth_stage") !== undefined){
-                currentGrowth = block.permutation.getState("growth_stage");
-            }else if(block.permutation.getState("age") !== undefined){
-                currentGrowth = block.permutation.getState("age");
-            }
+            //permutadores do bloco para verfiicação de existência de estado de crescimento
+            const cropPermutations = block.permutation.getAllStates();
 
-            const percentage = Math.round((currentGrowth !== 0 ? currentGrowth / maxGrowth : 0) * 100);
-            growth = (
-                percentage == 100
-                    ? "§aGrown"
-                    : `${percentage}%`
-            );
+            //tratador de crescimento genérico
+            for(const [key] of Object.entries(cropPermutations)){
+                //se o estado age ou growth existir
+                if(key.includes("growth") || key.includes("age")){
+                    currentGrowth = block.permutation.getState(key);
+
+                    const percentage = Math.round((currentGrowth !== 0 ? currentGrowth / maxGrowth : 0) * 100);
+                    growth = (
+                        percentage == 100
+                            ? "§aGrown"
+                            : `${percentage}%`
+                    );
+                };
+            };
         };
 
 
@@ -162,9 +167,10 @@ export const wawla = (player) => {
                 { text: isSilkTouch ? "\n§7Silk Touch Recommended" : "" },
                 { text: honeyLevel ? (`\n§7Honey: ${honeyLevel}/5`) : "" },
                 { text: block.getRedstonePower() > 0 ? (`\n§7Redstone Power: ${block.getRedstonePower()}`) : "" },
+                { text: compostLevel ? (`\n§7Compost level: ${Math.round(compostLevel/8 * 100)}%`) : "" },
+                { text: cauldron_fill_level ? (`\nCauldron fill: ${Math.round(block.permutation.getState("fill_level")/6 * 100)}%`) : "" },
                 { text: tool?.tool ? (`\n§7Correct Tool: §3${tool.tool}${toolRequired !== "Any" ? `§r (§e${toolRequired}§r)` : ""}`) : "" },
                 { text: tool?.farmable ? (`\n§7Farmable: ${tool.farmable ? "§aYes" : "§cNo"}`) : "" },
-                { text: block.typeId.includes("soul_sand") ? "\n§7Block Info: §cNeeds 4 souls to summon §5Wither§r" : "" },
                 { text: block.typeId.includes("gold_block") ? "\n§7Block Info: §cDouradinha...§r" : "" },
                 { text: `\n§9§o${addonId}` },
             ],
