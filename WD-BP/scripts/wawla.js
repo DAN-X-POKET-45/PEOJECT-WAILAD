@@ -605,6 +605,6 @@ const crops = {
     "farmersdelight:rich_soil_wheat": 7,
     "farmersdelight:tomato_block": 7,
 
-    //corn delight suport
+    //corn delight support
     "corn_delight:corn_crop": 7
 };
